@@ -22,7 +22,10 @@ export default function Sidebar() {
       </div>
 
       {/* Sidebar Header */}
-      <div className="text-2xl font-bold border-b border-white/30 pb-3 tracking-wider text-center w-full">
+      <div
+        className="w-full text-8xl font-extrabold text-center border-b border-white/40 pb-4 tracking-wider"
+        style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100px" ,fontSize:"30px"}}
+      >
         ARCHIVE
       </div>
 
@@ -39,7 +42,7 @@ export default function Sidebar() {
         ].map(({ text, path }, index, arr) => (
           <div key={path} className="w-full">
             {/* Full-Width Line */}
-            {index > 0 && <hr className="border-t border-white/50 w-full mx-auto" />}
+            {index > 0 && <hr className="border-t border-white/50 w-full" />}
 
             {/* Text in PERFECT CENTER */}
             <div
@@ -56,7 +59,7 @@ export default function Sidebar() {
             </div>
 
             {/* Last line fix (Ensuring no extra lines) */}
-            {index === arr.length - 1 && <hr className="border-t border-white/50 w-full mx-auto" />}
+            {index === arr.length - 1 && <hr className="border-t border-white/50 w-full" />}
           </div>
         ))}
       </div>
