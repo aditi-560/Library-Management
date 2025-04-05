@@ -19,7 +19,7 @@ body{
   flex-direction: column;
   max-width: 100%;
   width: 420px;
-  margin-left: 33rem;
+  margin-left: 35rem;
 }
 
 .form-header {
@@ -35,6 +35,7 @@ body{
   line-height: 1.25;
   text-align: center;
   color: rgb(2, 6, 23);
+  margin-left: 100px;
 }
 
 .login-title-text {
