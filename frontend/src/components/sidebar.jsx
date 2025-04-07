@@ -31,14 +31,17 @@ export default function Sidebar() {
         <FaBars className="text-xl cursor-pointer hover:scale-110 transition-transform duration-300" />
       </div>
 
-      {/* Sidebar Header */}
+      {/* Sidebar Header with navigation */}
       <div
+        onClick={() => handleNavigation("/")} // ✅ clickable Archive
         style={{
           fontSize: "30px",
           fontWeight: "bold",
           textAlign: "center",
           borderBottom: "2px solid rgba(255, 255, 255, 0.4)",
           paddingBottom: "10px",
+          cursor: "pointer",
+          color: activePath === "/landing" ? "#A5B4FC" : "white", // Highlight if active
         }}
       >
         ARCHIVE
@@ -57,10 +60,8 @@ export default function Sidebar() {
         }}
       >
         {[
-          { text: "My Library", path: "/library" },
+          { text: "My Library", path: "/my-library" },
           { text: "Wishlist", path: "/wishlist" },
-          // { text: "My Library", path: "/my-library" },
-          // { text: "Settings", path: "/settings" },
           { text: "Contact Us", path: "/contact" },
           { text: "Profile", path: "/profile" },
           { text: "Logout", path: "/logout" },
@@ -80,6 +81,6 @@ export default function Sidebar() {
           </Menu.Item>
         ))}
       </Menu>
-    </Sider>
-  );
+    </Sider>
+  );
 }

@@ -1,6 +1,6 @@
-import background from "../assets/back.png"; // Adjust the path if needed
-import Sidebar from "./sidebar"; // Import Sidebar component
-import Footer from "./Footer";
+import background from "../assets/back.png";
+import Sidebar from "./sidebar";
+
 const ContactForm = () => {
   return (
     <div 
@@ -12,40 +12,155 @@ const ContactForm = () => {
         display: "flex"
       }}
     >
-      <div style={{ height: "150vh", width: "170px", position: "fixed", left: 0, top: 0, bottom: 0, backgroundColor: "rgba(194, 232, 242, 0.7)", boxShadow: "2px 0 10px rgba(0, 0, 0, 0.5)" }}>
+      {/* Sidebar */}
+      <div style={{ 
+        height: "150vh", 
+        width: "170px", 
+        position: "fixed", 
+        left: 0, 
+        top: 0, 
+        bottom: 0, 
+        backgroundColor: "#c2e8f2", 
+        boxShadow: "2px 0 10px rgba(0, 0, 0, 0.4)" 
+      }}>
         <Sidebar />
       </div>
-      <div style={{ flex: 1, marginLeft: "170px", display: "flex", justifyContent: "center", alignItems: "center" }}>
+
+      {/* Main Content */}
+      <div style={{ 
+        flex: 1, 
+        marginLeft: "170px", 
+        display: "flex", 
+        justifyContent: "center", 
+        alignItems: "center" 
+      }}>
         <div>
-          <h1 style={{ fontSize: "2.5rem", fontWeight: "bold", color: "#1a1a1a", marginBottom: "10px", textAlign: "center" }}>Contact-Us</h1>
-          <p style={{ color: "#555", marginBottom: "20px", textAlign: "center" }}>Our attendants are prepared to help you!</p>
+          {/* Title */}
+          <h1 style={{ 
+            fontSize: "2.5rem", 
+            fontWeight: "bold", 
+            color: "#01303f", 
+            marginBottom: "10px", 
+            textAlign: "center" 
+          }}>
+            Contact-Us
+          </h1>
+
+          {/* Subtitle */}
+          <p style={{ 
+            color: "#333", 
+            marginBottom: "20px", 
+            textAlign: "center",
+            fontSize: "0.95rem"
+          }}>
+            Our attendants are prepared to help you!
+          </p>
+
+          {/* Form Card */}
           <form 
             style={{ 
-              background: "white", 
+              background: "#ffffff", 
               padding: "30px", 
-              borderRadius: "10px",     
-              boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
-              width: "350px"
+              borderRadius: "8px", 
+              boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.15)", 
+              width: "340px"
             }}
           >
-            <label style={{ fontSize: "14px", color: "#555", fontWeight: "bold" }}>Name</label>
-            <input type="text" placeholder="Enter your name" style={{ width: "100%", padding: "10px", marginBottom: "10px", borderRadius: "5px", border: "1px solid #ccc", fontWeight: "bold", backgroundColor: "#f9f9f9" }} />
-            
-            <label style={{ fontSize: "14px", color: "#555", fontWeight: "bold" }}>E-mail</label>
-            <input type="email" placeholder="Enter your email" style={{ width: "100%", padding: "10px", marginBottom: "10px", borderRadius: "5px", border: "1px solid #ccc", fontWeight: "bold", backgroundColor: "#f9f9f9" }} />
-            
-            <label style={{ fontSize: "14px", color: "#555", fontWeight: "bold" }}>Comment / Question</label>
-            <textarea placeholder="Type your message here..." style={{ width: "100%", padding: "10px", marginBottom: "10px", borderRadius: "5px", border: "1px solid #ccc", height: "80px", fontWeight: "bold", backgroundColor: "#f9f9f9" }}></textarea>
-            
-            <button type="submit" style={{ backgroundColor: "#36b5d8", color: "white", border: "none", padding: "10px 20px", borderRadius: "5px", cursor: "pointer", width: "100%", fontWeight: "bold", transition: "background 0.3s" }}
-              onMouseOver={(e) => e.target.style.backgroundColor = "#2a92a8"}
-              onMouseOut={(e) => e.target.style.backgroundColor = "#36b5d8"}>
+            {/* Name */}
+            <div style={{ marginBottom: "15px" }}>
+              <label style={{ 
+                display: "block", 
+                fontSize: "12px", 
+                marginBottom: "5px", 
+                color: "#01303f" 
+              }}>
+                Name
+              </label>
+              <input 
+                type="text" 
+                style={{ 
+                  width: "100%", 
+                  padding: "10px", 
+                  borderRadius: "4px", 
+                  border: "2px solid #8cb4bc", 
+                  fontSize: "14px", 
+                  color: "#01303f", 
+                  backgroundColor: "#f5fafa"
+                }}
+              />
+            </div>
+
+            {/* Email */}
+            <div style={{ marginBottom: "15px" }}>
+              <label style={{ 
+                display: "block", 
+                fontSize: "12px", 
+                marginBottom: "5px", 
+                color: "#01303f" 
+              }}>
+                E-mail
+              </label>
+              <input 
+                type="email" 
+                style={{ 
+                  width: "100%", 
+                  padding: "10px", 
+                  borderRadius: "4px", 
+                  border: "2px solid #8cb4bc", 
+                  fontSize: "14px", 
+                  color: "#01303f", 
+                  backgroundColor: "#f5fafa"
+                }}
+              />
+            </div>
+
+            {/* Comment */}
+            <div style={{ marginBottom: "15px" }}>
+              <label style={{ 
+                display: "block", 
+                fontSize: "12px", 
+                marginBottom: "5px", 
+                color: "#01303f" 
+              }}>
+                Comment / Question
+              </label>
+              <textarea 
+                style={{ 
+                  width: "100%", 
+                  padding: "10px", 
+                  borderRadius: "4px", 
+                  border: "2px solid #8cb4bc", 
+                  fontSize: "14px", 
+                  color: "#01303f", 
+                  backgroundColor: "#f5fafa", 
+                  height: "100px",
+                  resize: "none"
+                }}
+              />
+            </div>
+
+            {/* Button */}
+            <button 
+              type="submit" 
+              style={{ 
+                backgroundColor: "#018e8e", 
+                color: "white", 
+                border: "none", 
+                padding: "10px 20px", 
+                borderRadius: "5px", 
+                cursor: "pointer", 
+                fontSize: "14px", 
+                width: "100%", 
+                fontWeight: "bold" 
+              }}
+              onMouseOver={(e) => e.target.style.backgroundColor = "#016f6f"}
+              onMouseOut={(e) => e.target.style.backgroundColor = "#018e8e"}
+            >
               Send
             </button>
           </form>
         </div>
       </div>
-      
     </div>
   );
 };
