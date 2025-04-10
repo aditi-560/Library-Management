@@ -1,13 +1,7 @@
-import React, { useState } from "react";
+"use client";
+import * as React from "react";
 import "./login.css";
 import Footer from "../components/Footer";
-import { useNavigate } from "react-router-dom"; // ✅ For navigation
-
-import {
-  signInWithEmailAndPassword,
-  signInWithPopup
-} from "firebase/auth";
-import { auth, provider } from "../../firebase"; // ✅ Your firebase.js
 
 const InputField = ({
   type = "text",
@@ -60,48 +54,14 @@ const LoginButton = ({ onClick }) => {
   );
 };
 
-const GoogleButton = ({ onClick }) => {
-  return (
-    <div className="button-container">
-      <button onClick={onClick} className="google-button">
-        Sign in with Google
-      </button>
-    </div>
-  );
-};
-
 const LoginForm = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [rememberMe, setRememberMe] = useState(false);
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [rememberMe, setRememberMe] = React.useState(false);
 
-  const navigate = useNavigate(); // ✅ React Router navigation
-
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    try {
-      const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      const user = userCredential.user;
-      console.log("Logged in:", user.email);
-      alert(`Welcome, ${user.email}`);
-      navigate("/library"); // ✅ Redirect to /library
-    } catch (error) {
-      console.error("Login error:", error.message);
-      alert("Login failed: " + error.message);
-    }
-  };
-
-  const handleGoogleLogin = async () => {
-    try {
-      const result = await signInWithPopup(auth, provider);
-      const user = result.user;
-      console.log("Google login successful:", user.displayName);
-      alert(`Signed in with Google: ${user.displayName}`);
-      navigate("/library"); // ✅ Redirect to /library
-    } catch (error) {
-      console.error("Google login error:", error.message);
-      alert("Google login failed: " + error.message);
-    }
+    // Handle login logic here
   };
 
   return (
@@ -125,7 +85,7 @@ const LoginForm = () => {
               placeholder="Password"
               value={password}
               onChange={setPassword}
-              rightContent={<button className="forgot-button">Forgot?</button>}
+              rightContent={<button className="forgot-button">Forgot ?</button>}
             />
 
             <CheckboxField
@@ -135,8 +95,6 @@ const LoginForm = () => {
             />
 
             <LoginButton onClick={handleSubmit} />
-
-            <GoogleButton onClick={handleGoogleLogin} />
           </header>
 
           <p className="signup-text">
@@ -147,7 +105,7 @@ const LoginForm = () => {
           </p>
         </form>
       </div>
-      <Footer />
+      <Footer/>
     </div>
   );
 };

@@ -96,7 +96,7 @@ const BookGrid = () => {
           author="J.R.R. Tolkien"
         />
         <BookCard
-          image="https://m.media-amazon.com/images/I/71smIoGNeiL.UF1000,1000_QL80.jpg"
+          image="https://m.media-amazon.com/images/I/71smIoGNeiL._UF1000,1000_QL80_.jpg"
           title="To Kill a Mockingbird"
           author="Harper Lee"
         />
@@ -125,18 +125,18 @@ const BookGrid = () => {
         <BookCard image="https://upload.wikimedia.org/wikipedia/en/d/db/Fahrenheit_451_1st_ed_cover.jpg" title="Fahrenheit 451" author="Ray Bradbury" />
         <BookCard image="https://m.media-amazon.com/images/I/81FPzmB5fgL.jpg" title="The Alchemist" author="Paulo Coelho" />
         <BookCard
-          image="https://m.media-amazon.com/images/I/81fiJzvcB2L.UF1000,1000_QL80.jpg"
+          image="https://m.media-amazon.com/images/I/81fiJzvcB2L._UF1000,1000_QL80_.jpg"
           title="Brave New World"
           author="Aldous Huxley"
         />
         <BookCard
-          image="https://m.media-amazon.com/images/I/91S4wO9qM3L.UF1000,1000_QL80.jpg"
+          image="https://m.media-amazon.com/images/I/91S4wO9qM3L._UF1000,1000_QL80_.jpg"
           title="The Picture of Dorian Gray"
           author="Oscar Wilde"
         />
         <BookCard image="https://img.bookchor.com/images/cover/bc/9780140620115.jpg" title="Jane Eyre" author="Charlotte Brontë" />
         <BookCard
-          image="https://m.media-amazon.com/images/I/91WTAm9DPzL.AC_UF1000,1000_QL80.jpg"
+          image="https://m.media-amazon.com/images/I/91WTAm9DPzL._AC_UF1000,1000_QL80_.jpg"
           title="Wuthering Heights"
           author="Emily Brontë"
         />

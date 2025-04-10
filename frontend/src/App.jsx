@@ -13,8 +13,14 @@ import ContactForm from "./components/ContactForm";
 import LandingPage from "./Pages/LandinPage";
 import Wishlist from "./components/Wishlist";
 import InputDesign from "./Pages/Library";
+
+
 import AddBooksAntD from "./Pages/addBooks";
 import ProtectedRoute from "./components/ProtectedRoute"; // <-- Import protected wrapper
+
+import AddBooksAntD from "./Pages/addBooks";
+import ProtectedRoute from "./components/ProtectedRoute"; // <-- Import protected wrapper
+
 
 import "./App.css";
 
@@ -40,6 +46,17 @@ const App = () => {
         <Route path="/" element={<LandingPage />} />
         <Route path="/signup" element={<SignUpForm />} />
         <Route path="/login" element={<LoginForm />} />
+
+        <Route path="/contact" element={<ContactForm />} />
+        <Route path="/books" element={<BookPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/footer" element={<Footer />} />
+        <Route path="/sidebar" element={<Sidebar />} />
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/wishlist" element={<Wishlist />} />
+        <Route path="/library" element={<InputDesign />} />
+        
+
 
         {/* Protected Routes */}
         <Route
@@ -106,6 +123,7 @@ const App = () => {
             </ProtectedRoute>
           }
         />
+
       </Routes>
     </Router>
   );
