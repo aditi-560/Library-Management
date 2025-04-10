@@ -90,12 +90,12 @@ function SignUpForm() {
     navigate("/login");
   };
 
-<<<<<<< HEAD
+
   return (
     <main className="main-container">
       <div className="contact-button-wrapper">
         <ContactButton onClick={handleContactClick} />
-=======
+
   const handleGoogleLogin = async () => {
     try {
       await signInWithPopup(auth, provider);
@@ -138,8 +138,7 @@ function SignUpForm() {
   return (
     <Layout className="main-container" style={{ minHeight: "100vh", background: "#f7f9fc" }}>
       <div style={{ textAlign: "right", padding: "1rem" }}>
-        
->>>>>>> 9959b47777dae5c261955275364aa6206b50f931
+
       </div>
 
       <section className="content-section">

@@ -13,12 +13,14 @@ import ContactForm from "./components/ContactForm";
 import LandingPage from "./Pages/LandinPage";
 import Wishlist from "./components/Wishlist";
 import InputDesign from "./Pages/Library";
-<<<<<<< HEAD
- // Profile Page
-=======
+
+
 import AddBooksAntD from "./Pages/addBooks";
 import ProtectedRoute from "./components/ProtectedRoute"; // <-- Import protected wrapper
->>>>>>> 9959b47777dae5c261955275364aa6206b50f931
+
+import AddBooksAntD from "./Pages/addBooks";
+import ProtectedRoute from "./components/ProtectedRoute"; // <-- Import protected wrapper
+
 
 import "./App.css";
 
@@ -44,7 +46,7 @@ const App = () => {
         <Route path="/" element={<LandingPage />} />
         <Route path="/signup" element={<SignUpForm />} />
         <Route path="/login" element={<LoginForm />} />
-<<<<<<< HEAD
+
         <Route path="/contact" element={<ContactForm />} />
         <Route path="/books" element={<BookPage />} />
         <Route path="/profile" element={<ProfilePage />} />
@@ -54,7 +56,7 @@ const App = () => {
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/library" element={<InputDesign />} />
         
-=======
+
 
         {/* Protected Routes */}
         <Route
@@ -121,7 +123,7 @@ const App = () => {
             </ProtectedRoute>
           }
         />
->>>>>>> 9959b47777dae5c261955275364aa6206b50f931
+
       </Routes>
     </Router>
   );
