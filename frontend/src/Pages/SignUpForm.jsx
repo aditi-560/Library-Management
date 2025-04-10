@@ -90,10 +90,56 @@ function SignUpForm() {
     navigate("/login");
   };
 
+<<<<<<< HEAD
   return (
     <main className="main-container">
       <div className="contact-button-wrapper">
         <ContactButton onClick={handleContactClick} />
+=======
+  const handleGoogleLogin = async () => {
+    try {
+      await signInWithPopup(auth, provider);
+      navigate("/library");
+    } catch (error) {
+      console.error("Error during login:", error);
+      message.error("Google sign-in failed");
+    }
+  };
+
+  const handleSignup = async (values) => {
+    const { name, email, password, role, country } = values;
+  
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+  
+      // Generate DiceBear avatar URL
+      const avatarURL = `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(name)}`;
+  
+      // Store additional info in Firestore
+      await setDoc(doc(db, "users", user.uid), {
+        name,
+        email,
+        role,
+        country,
+        avatarURL, // store avatar URL
+        createdAt: new Date().toISOString(),
+      });
+  
+      message.success("Signup successful! Redirecting...");
+      navigate("/library");
+    } catch (error) {
+      console.error("Signup Error:", error);
+      message.error(error.message);
+    }
+  };
+  
+
+  return (
+    <Layout className="main-container" style={{ minHeight: "100vh", background: "#f7f9fc" }}>
+      <div style={{ textAlign: "right", padding: "1rem" }}>
+        
+>>>>>>> 9959b47777dae5c261955275364aa6206b50f931
       </div>
 
       <section className="content-section">

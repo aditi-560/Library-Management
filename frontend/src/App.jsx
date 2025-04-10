@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../firebase";
+
 import SignUpForm from "./Pages/SignUpForm";
 import LoginForm from "./Pages/LoginForm";
 import BookPage from "./Pages/BookPage";
@@ -10,16 +13,38 @@ import ContactForm from "./components/ContactForm";
 import LandingPage from "./Pages/LandinPage";
 import Wishlist from "./components/Wishlist";
 import InputDesign from "./Pages/Library";
+<<<<<<< HEAD
  // Profile Page
+=======
+import AddBooksAntD from "./Pages/addBooks";
+import ProtectedRoute from "./components/ProtectedRoute"; // <-- Import protected wrapper
+>>>>>>> 9959b47777dae5c261955275364aa6206b50f931
 
 import "./App.css";
 
 const App = () => {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  // Listen to auth state changes
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      setLoading(false);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  if (loading) return <div className="loading">Loading...</div>;
+
   return (
     <Router>
       <Routes>
+        {/* Public Routes */}
+        <Route path="/" element={<LandingPage />} />
         <Route path="/signup" element={<SignUpForm />} />
         <Route path="/login" element={<LoginForm />} />
+<<<<<<< HEAD
         <Route path="/contact" element={<ContactForm />} />
         <Route path="/books" element={<BookPage />} />
         <Route path="/profile" element={<ProfilePage />} />
@@ -29,6 +54,74 @@ const App = () => {
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/library" element={<InputDesign />} />
         
+=======
+
+        {/* Protected Routes */}
+        <Route
+          path="/contact"
+          element={
+            <ProtectedRoute user={user}>
+              <ContactForm />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/books"
+          element={
+            <ProtectedRoute user={user}>
+              <BookPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute user={user}>
+              <ProfilePage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/footer"
+          element={
+            <ProtectedRoute user={user}>
+              <Footer />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/sidebar"
+          element={
+            <ProtectedRoute user={user}>
+              <Sidebar />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/wishlist"
+          element={
+            <ProtectedRoute user={user}>
+              <Wishlist />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/library"
+          element={
+            <ProtectedRoute user={user}>
+              <InputDesign />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/addbooks"
+          element={
+            <ProtectedRoute user={user}>
+              <AddBooksAntD />
+            </ProtectedRoute>
+          }
+        />
+>>>>>>> 9959b47777dae5c261955275364aa6206b50f931
       </Routes>
     </Router>
   );
