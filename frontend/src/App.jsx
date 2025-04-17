@@ -16,7 +16,7 @@ import InputDesign from "./Pages/Library";
 import InputDesigns from "./Pages/adminLibrary";
 import BookForm from "./Pages/addBooks";
 import ProtectedRoute from "./components/ProtectedRoute"; // <-- Import protected wrapper
-
+import IssuedBooks from "./Pages/IssuedBooks";
 import "./App.css";
 
 const App = () => {
@@ -116,6 +116,9 @@ const App = () => {
         <Route path="/" element={<LandingPage />} />
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/library" element={<InputDesign />} />
+        <Route path="/addbooks" element={<AddBooksAntD />} />
+        <Route path="/issuedbooks" element={<IssuedBooks />} />
+
         <Route path="/addbooks" element={<BookForm />} />
         <Route path="/adminlibrary" element={<InputDesigns />} />
         
