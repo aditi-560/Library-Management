@@ -7,7 +7,8 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup
 } from "firebase/auth";
-import { auth, provider } from "../../firebase"; // ✅ Your firebase.js
+import { doc, getDoc } from "firebase/firestore";
+import { auth, provider, db } from "../../firebase"; // ✅ Your firebase.js
 
 const InputField = ({
   type = "text",
@@ -82,9 +83,24 @@ const LoginForm = () => {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
-      console.log("Logged in:", user.email);
-      alert(`Welcome, ${user.email}`);
-      navigate("/library"); // ✅ Redirect to /library
+      const userDocRef = doc(db, "users", user.uid);
+      const userDocSnap = await getDoc(userDocRef);
+      
+      if(userDocSnap.exists()){
+        const userData= userDocSnap.data();
+        const userRole= userData.role;
+        alert(`Welcome, ${user.email}`);
+
+        if(userRole=== "Admin") {
+          navigate("/adminlibrary");
+        } else if(userRole=== "User"){
+          navigate("/library");
+        } else{
+          navigate("/");
+        }
+      } else {
+        throw new Error("User document not found!");
+      }
     } catch (error) {
       console.error("Login error:", error.message);
       alert("Login failed: " + error.message);
@@ -95,9 +111,24 @@ const LoginForm = () => {
     try {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
-      console.log("Google login successful:", user.displayName);
-      alert(`Signed in with Google: ${user.displayName}`);
-      navigate("/library"); // ✅ Redirect to /library
+      const userDocRef = doc(db, "users", user.uid);
+      const userDocSnap = await getDoc(userDocRef);
+      
+      if(userDocSnap.exists()){
+        const userData= userDocSnap.data();
+        const userRole= userData.role;
+        alert(`Signed in with Google: ${user.displayName}`);
+
+        if(userRole=== "Admin") {
+          navigate("/adminlibrary");
+        } else if(userRole=== "User"){
+          navigate("/library");
+        } else{
+          navigate("/");
+        }
+      } else {
+        throw new Error("User document not found!");
+      }
     } catch (error) {
       console.error("Google login error:", error.message);
       alert("Google login failed: " + error.message);

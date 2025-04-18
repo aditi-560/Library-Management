@@ -116,9 +116,8 @@ const App = () => {
         <Route path="/" element={<LandingPage />} />
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/library" element={<InputDesign />} />
-        <Route path="/addbooks" element={<AddBooksAntD />} />
-        <Route path="/issuedbooks" element={<IssuedBooks />} />
 
+        <Route path="/issuedbooks" element={<IssuedBooks />} />
         <Route path="/addbooks" element={<BookForm />} />
         <Route path="/adminlibrary" element={<InputDesigns />} />
         

@@ -8,7 +8,7 @@ import { GoogleOutlined } from "@ant-design/icons";
 import Footer from "../components/Footer";
 import { signInWithPopup, createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, provider, db } from "../../firebase";
-import { doc, setDoc } from "firebase/firestore";
+import { doc, setDoc, getDoc } from "firebase/firestore";
 import "antd/dist/reset.css";
 import "./SignUpForm.css";
 
@@ -65,9 +65,25 @@ const handleImageChange = (e) => {
         avatarURL, // store avatar URL
         createdAt: new Date().toISOString(),
       });
-  
-      message.success("Signup successful! Redirecting...");
-      navigate("/library");
+
+      const userDocRef= doc(db, "users", user.uid);
+      const userDocSnap= await getDoc(userDocRef);
+
+      if(userDocSnap.exists()){
+        const userData= userDocSnap.data();
+        const userRole= userData.role;
+        message.success("Signup successful! Redirecting...");
+
+        if(userRole=== "Admin"){
+          navigate("/adminlibrary");
+        }else if(userRole=== "User"){
+          navigate("/library");
+        }else{
+          navigate("/");
+        }
+      } else{
+        throw new Error("User document not found!");
+      }
     } catch (error) {
       console.error("Signup Error:", error);
       message.error(error.message);

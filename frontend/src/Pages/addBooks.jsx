@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { collection, addDoc } from 'firebase/firestore';
+import { collection, setDoc, doc } from 'firebase/firestore';
 import { db } from '../../firebase';
 
 const BookForm = () => {
@@ -34,7 +34,7 @@ const BookForm = () => {
     
     try {
       // Add document to Firestore
-      await addDoc(collection(db, "books"), {
+      await setDoc(doc(db, "books", formData.title), {
         title: formData.title,
         id: formData.title,
         author: formData.author,
